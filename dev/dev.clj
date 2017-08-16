@@ -14,4 +14,6 @@
                      org.postgresql.geometric.PGpolygon
                      org.postgresql.geometric.PGlseg
                      org.postgresql.util.PGmoney
-                     org.postgresql.util.PGInterval}))
+                     org.postgresql.util.PGInterval}
+            :vpc-config {:security-groups #{"lambda"}
+                         :subnet-ids :all}))
