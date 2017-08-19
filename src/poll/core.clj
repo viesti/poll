@@ -17,8 +17,7 @@
      [:body
       [:h1 "Current polls"]
       [:table
-       (for [{:keys [poll vote count]} (jdbc/query #_(str "jdbc:postgresql://" (System/getenv "db_host") ":5432/portkey?user=portkey&password=" (System/getenv "db_password"))
-                                                   {:datasource @datasource}
+       (for [{:keys [poll vote count]} (jdbc/query {:datasource @datasource}
                                                    ["select poll,vote,count(vote) from votes group by poll,vote order by poll"])]
          [:tr
           [:td poll]
